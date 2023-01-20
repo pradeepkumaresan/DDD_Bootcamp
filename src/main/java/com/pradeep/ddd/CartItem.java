@@ -1,8 +1,8 @@
 package com.pradeep.ddd;
 
 public class CartItem {
-    private Product product;
-    private int quantity;
+    private final Product product;
+    private final int quantity;
 
     public CartItem(Product product, int quantity) {
         this.product = product;
