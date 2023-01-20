@@ -1,10 +1,8 @@
 package com.pradeep.ddd;
 
+import com.pradeep.ddd.domain.*;
 import com.pradeep.ddd.domain_service.DiscountService;
-import com.pradeep.ddd.domain.Cart;
-import com.pradeep.ddd.domain.Item;
-import com.pradeep.ddd.domain.Price;
-import com.pradeep.ddd.domain.Product;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -14,10 +12,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CartTest {
 
+    Currency usdCurrency;
+    @BeforeEach
+    void setUp() {
+        usdCurrency = Currency.getInstance("USD");
+    }
+
     @Test
     void cartShouldContainOneItemWhenApplePencilIsAddedToCart() {
         Product applePencil = new Product("Apple Pencil",
-                new Price(new BigDecimal(30), Currency.getInstance("USD")));
+                new Price(new BigDecimal(30), usdCurrency));
         Item item =new Item(applePencil,1);
         Cart cart = new Cart();
         cart.add(item);
@@ -28,7 +32,7 @@ class CartTest {
     @Test
     void cartShouldContainOneItemWhenSonyWirelessHeadphoneIsAddedToCart() {
         Product sonyWirelessHeadphone = new Product("Sony Wireless headphone",
-                new Price(new BigDecimal(40), Currency.getInstance("USD")));
+                new Price(new BigDecimal(40), usdCurrency));
         Item item =new Item(sonyWirelessHeadphone,1);
         Cart cart = new Cart();
         cart.add(item);
@@ -38,7 +42,7 @@ class CartTest {
     @Test
     void cartShouldContainTwoItemsWhenTwoApplePencilsAreAddedToCart() {
         Product applePencil = new Product("Apple Pencil",
-                new Price(new BigDecimal(30), Currency.getInstance("USD")));
+                new Price(new BigDecimal(30), usdCurrency));
         Item item =new Item(applePencil,2);
         Cart cart = new Cart();
         cart.add(item);
@@ -49,7 +53,7 @@ class CartTest {
     @Test
     void cartSizeShouldBeZeroWhenTheOnlyApplePencilItemIsRemoved() {
         Product applePencil = new Product("Apple Pencil",
-                new Price(new BigDecimal(30), Currency.getInstance("USD")));
+                new Price(new BigDecimal(30), usdCurrency));
         Item item =new Item(applePencil,1);
         Cart cart = new Cart();
         cart.add(item);
@@ -61,7 +65,7 @@ class CartTest {
     @Test
     void shouldReturnRemovedListWithApplePencilIfItIsRemovedFromCart() {
         Product applePencil = new Product("Apple Pencil",
-                new Price(new BigDecimal(30), Currency.getInstance("USD")));
+                new Price(new BigDecimal(30), usdCurrency));
         Item item =new Item(applePencil,1);
         Cart cart = new Cart();
         cart.add(item);
@@ -75,13 +79,13 @@ class CartTest {
     @Test
     void shouldReturnFalseIfTwoCartsHavingSameItemsComparedWithEachOther() {
         Product applePencil = new Product("Apple Pencil",
-                new Price(new BigDecimal(30), Currency.getInstance("USD")));
+                new Price(new BigDecimal(30), usdCurrency));
         Item item = new Item(applePencil, 1);
         Cart cart = new Cart();
         cart.add(item);
 
         Product anotherApplePencil = new Product("Apple Pencil",
-                new Price(new BigDecimal(30), Currency.getInstance("USD")));
+                new Price(new BigDecimal(30), usdCurrency));
         Item anotherApplePencilItem = new Item(anotherApplePencil, 1);
         Cart anotherCart = new Cart();
         anotherCart.add(anotherApplePencilItem);
@@ -95,8 +99,26 @@ class CartTest {
                 .discountByTenPercent(DiscountService.getCompetitorPrices().get("Apple Pencil"));
         Product applePencil = new Product("Apple Pencil",
                 new Price(discountedAmount,
-                        Currency.getInstance("USD")));
+                        usdCurrency));
 
         assertEquals(discountedAmount, applePencil.getPrice().getAmount());
+    }
+
+    @Test
+    void shouldHave5ProductsWhenOrderCreatedWith5ProductsInside3Items() {
+        Product applePencil = new Product("Apple Pencil",
+                new Price(new BigDecimal(30), usdCurrency));
+        Cart cart = new Cart();
+
+        Product sonyWirelessHeadphone = new Product("Sony Wireless headphone",
+                new Price(new BigDecimal(40), usdCurrency));
+
+        cart.add(new Item(applePencil, 1));
+        cart.add(new Item(applePencil, 3));
+        cart.add(new Item(sonyWirelessHeadphone, 1));
+
+        Order order = cart.checkOut();
+
+        assertEquals(5, order.getProducts().size());
     }
 }
