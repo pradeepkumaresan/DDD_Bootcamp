@@ -1,15 +1,26 @@
 package com.pradeep.ddd.domain;
 
+import java.math.BigDecimal;
 import java.util.Currency;
 
 public class Price {
-    private final Currency price;
+    private BigDecimal amount;
+    private Currency currency;
 
-    public Price(Currency price) {
-        this.price = price;
+    public Price(BigDecimal amount, Currency currency) {
+        this.amount = amount;
+        this.currency = currency;
     }
 
-    public Currency getPrice() {
-        return price;
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
     }
 }
