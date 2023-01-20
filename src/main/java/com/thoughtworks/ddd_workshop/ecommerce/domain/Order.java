@@ -1,4 +1,4 @@
-package com.thoughtworks.ddd_workshop.domain;
+package com.thoughtworks.ddd_workshop.ecommerce.domain;
 
 import java.util.List;
 

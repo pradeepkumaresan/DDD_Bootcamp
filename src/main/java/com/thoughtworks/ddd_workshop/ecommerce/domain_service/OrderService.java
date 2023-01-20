@@ -1,9 +1,9 @@
-package com.thoughtworks.ddd_workshop.domain_service;
+package com.thoughtworks.ddd_workshop.ecommerce.domain_service;
 
-import com.thoughtworks.ddd_workshop.domain.Cart;
-import com.thoughtworks.ddd_workshop.domain.Item;
-import com.thoughtworks.ddd_workshop.domain.Order;
-import com.thoughtworks.ddd_workshop.domain.Product;
+import com.thoughtworks.ddd_workshop.ecommerce.domain.Cart;
+import com.thoughtworks.ddd_workshop.ecommerce.domain.Item;
+import com.thoughtworks.ddd_workshop.ecommerce.domain.Order;
+import com.thoughtworks.ddd_workshop.ecommerce.domain.Product;
 
 import java.util.ArrayList;
 import java.util.List;

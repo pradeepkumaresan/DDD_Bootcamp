@@ -1,6 +1,6 @@
-package com.thoughtworks.ddd_workshop.domain;
+package com.thoughtworks.ddd_workshop.ecommerce.domain;
 
-import com.thoughtworks.ddd_workshop.domain_service.OrderService;
+import com.thoughtworks.ddd_workshop.ecommerce.domain_service.OrderService;
 
 import java.util.ArrayList;
 import java.util.List;
