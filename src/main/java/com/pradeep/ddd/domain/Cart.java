@@ -1,5 +1,7 @@
 package com.pradeep.ddd.domain;
 
+import com.pradeep.ddd.domain_service.OrderService;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,14 +27,9 @@ public class Cart {
     }
 
     public Order checkOut(){
-        List<Product> products = new ArrayList<>();
-        for (Item item : items) {
-            IntStream.range(0, item.getQuantity())
-                    .mapToObj(i -> item.getProduct())
-                    .forEach(products::add);
-        }
+        OrderService orderService = new OrderService();
         checkedOut = true;
-        return new Order(products);
+        return orderService.create(this);
     }
 
     public List<Item> getCartItems(){
