@@ -1,4 +1,4 @@
-package com.pradeep.ddd;
+package com.pradeep.ddd.domain;
 
 public class Product {
     private final String name;

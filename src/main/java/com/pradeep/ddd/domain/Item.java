@@ -1,10 +1,10 @@
-package com.pradeep.ddd;
+package com.pradeep.ddd.domain;
 
-public class CartItem {
+public class Item {
     private final Product product;
     private final int quantity;
 
-    public CartItem(Product product, int quantity) {
+    public Item(Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
     }
