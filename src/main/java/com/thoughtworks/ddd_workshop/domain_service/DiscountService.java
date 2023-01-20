@@ -1,4 +1,4 @@
-package com.pradeep.ddd.domain_service;
+package com.thoughtworks.ddd_workshop.domain_service;
 
 import java.math.BigDecimal;
 import java.util.HashMap;

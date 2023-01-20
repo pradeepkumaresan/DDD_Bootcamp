@@ -1,4 +1,4 @@
-package com.pradeep.ddd.domain;
+package com.thoughtworks.ddd_workshop.domain;
 
 import java.math.BigDecimal;
 import java.util.Currency;

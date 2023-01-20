@@ -1,13 +1,11 @@
-package com.pradeep.ddd.domain;
+package com.thoughtworks.ddd_workshop.domain;
 
-import com.pradeep.ddd.domain_service.OrderService;
+import com.thoughtworks.ddd_workshop.domain_service.OrderService;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Cart {
 

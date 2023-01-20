@@ -1,7 +1,7 @@
-package com.pradeep.ddd;
+package com.thoughtworks.ddd_workshop;
 
-import com.pradeep.ddd.domain.*;
-import com.pradeep.ddd.domain_service.DiscountService;
+import com.thoughtworks.ddd_workshop.domain.*;
+import com.thoughtworks.ddd_workshop.domain_service.DiscountService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

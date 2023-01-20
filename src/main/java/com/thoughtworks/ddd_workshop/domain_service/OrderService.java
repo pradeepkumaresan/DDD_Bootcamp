@@ -1,9 +1,9 @@
-package com.pradeep.ddd.domain_service;
+package com.thoughtworks.ddd_workshop.domain_service;
 
-import com.pradeep.ddd.domain.Cart;
-import com.pradeep.ddd.domain.Item;
-import com.pradeep.ddd.domain.Order;
-import com.pradeep.ddd.domain.Product;
+import com.thoughtworks.ddd_workshop.domain.Cart;
+import com.thoughtworks.ddd_workshop.domain.Item;
+import com.thoughtworks.ddd_workshop.domain.Order;
+import com.thoughtworks.ddd_workshop.domain.Product;
 
 import java.util.ArrayList;
 import java.util.List;
