@@ -10,6 +10,10 @@ public class Cart {
         items.add(item);
     }
 
+    public void remove(Item item){
+        items.remove(item);
+    }
+
     public List<Item> getCartItems(){
         return items;
     }
