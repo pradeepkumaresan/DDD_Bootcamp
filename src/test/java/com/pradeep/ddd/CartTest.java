@@ -49,4 +49,16 @@ class CartTest {
         cart.remove(item);
         assertEquals(cart.getCartItems().size(), 0);
     }
+    @Test
+    void shouldReturnRemovedListWithApplePencilIfItIsRemovedFromCart() {
+        Product applePencil = new Product("Apple Pencil");
+        Item item =new Item(applePencil,1);
+        Cart cart = new Cart();
+        cart.add(item);
+        assertEquals(cart.getCartItems().get(0).getQuantity(), 1);
+        assertEquals(cart.getCartItems().get(0).getProduct(), applePencil);
+        cart.remove(item);
+        assertEquals(cart.getCartItems().size(), 0);
+        assertEquals(cart.getRemovedProducts().get(0), applePencil);
+    }
 }
