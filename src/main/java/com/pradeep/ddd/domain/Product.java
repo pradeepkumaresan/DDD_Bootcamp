@@ -4,9 +4,11 @@ import java.util.Objects;
 
 public class Product {
     private final String name;
+    private final Price price;
 
-    public Product(String name) {
+    public Product(String name, Price price) {
         this.name = name;
+        this.price=price;
     }
 
     @Override
@@ -20,5 +22,13 @@ public class Product {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Price getPrice() {
+        return price;
     }
 }
