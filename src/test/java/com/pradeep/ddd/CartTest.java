@@ -13,4 +13,12 @@ class CartTest {
         cart.add(applePencil);
         assertEquals(cart.getCartProducts().size(), 1);
     }
+
+    @Test
+    void cartShouldContainOneItemWhenSonyWirelessHeadphoneIsAddedToCart() {
+        Product applePencil = new Product("Sony Wireless headphone");
+        Cart cart = new Cart();
+        cart.add(applePencil);
+        assertEquals(cart.getCartProducts().size(), 1);
+    }
 }
