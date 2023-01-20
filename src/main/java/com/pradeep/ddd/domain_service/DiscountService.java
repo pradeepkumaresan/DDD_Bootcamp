@@ -4,13 +4,17 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DiscountCalculator {
+public class DiscountService {
 
-    Map<String, BigDecimal> competitorPrices = new HashMap<>();
+    private static final Map<String, BigDecimal> competitorPrices = new HashMap<>();
 
-    public DiscountCalculator() {
+    static {
         competitorPrices.put("Apple Pencil", new BigDecimal(75));
         competitorPrices.put("Sony Wireless headphone", new BigDecimal(100));
+    }
+
+    public static Map<String, BigDecimal> getCompetitorPrices(){
+        return competitorPrices;
     }
 
     public static BigDecimal discountByTenPercent(BigDecimal amount){
