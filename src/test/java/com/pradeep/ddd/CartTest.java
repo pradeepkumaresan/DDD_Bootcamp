@@ -61,4 +61,19 @@ class CartTest {
         assertEquals(cart.getCartItems().size(), 0);
         assertEquals(cart.getRemovedProducts().get(0), applePencil);
     }
+
+    @Test
+    void shouldReturnFalseIfTwoCartsHavingSameItemsComparedWithEachOther() {
+        Product applePencil = new Product("Apple Pencil");
+        Item item = new Item(applePencil, 1);
+        Cart cart = new Cart();
+        cart.add(item);
+
+        Product anotherApplePencil = new Product("Apple Pencil");
+        Item anotherApplePencilItem = new Item(anotherApplePencil, 1);
+        Cart anotherCart = new Cart();
+        anotherCart.add(anotherApplePencilItem);
+
+        assertNotEquals(cart, anotherCart);
+    }
 }
